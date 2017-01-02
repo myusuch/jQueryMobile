@@ -1,0 +1,73 @@
+#header
+{
+	margin-left : 0px;
+	margin-right : 0px;
+
+}
+.title {font-size: 1.0em; font-weight: bold; color: teal; font-style:italic;}
+
+#mapTitle {
+	font-size: 0.7em;
+
+}
+
+#map_canvas {
+	width:400px;
+	height:280px;
+}
+
+.ui-icon-sheridan:after
+{
+	background-image: url("images/sheridan.jpg");
+	background-size: 22px 22px;
+}
+
+#footer {text-align : center;}
+
+#personinfo
+{
+	background-image: url("images/MyungsukChoi.jpg");
+	background-size: 22px 22px;
+}
+
+
+#location h3{
+	margin-top : 0px;
+	margin-bottom : 0px;
+
+}
+
+#aboutPopup {
+
+	width:300px;
+	height:220px;
+
+
+}
+
+.aboutDetails {
+	padding-bottom : 15px;
+	font-size : 0.9em;
+
+	margin : 0px;
+}
+
+
+.panelStyle {
+	margin-left : 10px;
+}
+
+#localStroage, email {
+	margin : 0px;
+}
+
+#aboutHeader {
+	margin : 0px;
+
+}
+
+#commentHeader{
+	margin : 0px;
+
+}
+

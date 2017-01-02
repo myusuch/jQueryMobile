@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Assignment 3</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<link rel="stylesheet" href="_css/jquery.mobile.css" />
+	<link rel="stylesheet" href="_css/mystyles.css" />
+
+	<script src="_js/jquery.js"></script>
+	<script src="_js/jquery.mobile.js"></script>
+	<script src="_js/myscript.js"></script>
+
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=false&language=en"></script>
+
+</head>
+
+<body>
+<!-- Home page -->
+<div data-role="page" id="home">
+	<!-- Header -->
+	<header data-role="header" >
+		<h1 class="ui-title" id="header"></h1>
+	</header>
+
+	<!-- Content -->
+	<section class="ui-content" role="main">
+		<div id="location"></div>
+		<div class="ui-grid-b">
+			<!-- Block A -->
+			<section class="ui-block-a">
+				<a href="#windPanel" class="ui-btn ui-icon-info ui-btn-icon-left">Wind Info</a>
+				<a href="#atmosphere" class="ui-btn ui-icon-info ui-btn-icon-left">Atmosphere Info</a>
+				<a href="#astronomy" class="ui-btn ui-icon-info ui-btn-icon-left">Astronmony Info</a>
+			</section>
+
+			<!-- Block B -->
+			<section class="ui-block-b">
+				<a href="#foreCast" class="ui-btn ui-icon-bullets ui-btn-icon-left">Forecast</a>
+			</section>
+
+			<!-- Block C -->
+			<section class="ui-block-c">
+				<a href="#mapPopUp" data-rel="popup" data-transition="pop" class="ui-btn ui-icon-location ui-btn-icon-left" id="mapButton">Map</a>
+				<a href="#question" class="ui-btn ui-icon-comment ui-btn-icon-left">Question</a>
+			</section>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer data-role="footer" id="footer">
+		<a href="#aboutPopup" data-rel="popup" data-transition="pop"
+			class="ui-btn ui-icon-search ui-btn-icon-top ui-corner-all"><span class="title">About Me</span></a>
+		<a href="https://www.sheridancollege.ca/" target="_blank"
+				class="ui-btn ui-icon-sheridan ui-btn-icon-top ui-corner-all"><span class="title">Sheridan</span></a>
+		<a href="https://www.theguardian.com/international" target="_blank"
+				class="ui-btn ui-icon-star ui-btn-icon-top ui-corner-all"><span class="title">Guardian</span></a>
+	</footer>
+
+	<!-- Panels -->
+	<div id="windPanel" data-role="panel">
+		<h2 style="text-align:center;">Wind</h2>
+		<table id="windList" data-role="table" class="ui-responsive" >
+		</table>
+	</div>
+
+	<div id="atmosphere" data-role="panel">
+		<h2 style="text-align:center;">Atmosphere</h2>
+		<table id="atmosphereList" data-role="table" class="ui-responsive" >
+		</table>
+	</div>
+
+	<div id="astronomy" data-role="panel">
+		<h2 style="text-align:center;">Astronomy</h2>
+		<table id="astronomyList" data-role="table" class="ui-responsive" >
+		</table>
+	</div>
+
+
+
+	<!-- About popup -->
+	<div data-role="popup" data-overlay-theme="b" id="aboutPopup" class="ui-content">
+		<!-- Add Close button -->
+		<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete
+									ui-btn-icon-notext ui-btn-right">Close</a>
+
+		<header data-role="header">
+			<h1 class="ui-title" id="aboutHeader">About Me</h1>
+		</header>
+		<section class="ui-content" role="main" >
+			<div class="ui-grid-a" >
+				<div class="ui-block-a" id="aboutPic"></div>
+				<div class="ui-block-b" id="aboutDesc"></div>
+			</div>
+		</section>
+
+	</div>
+
+
+	<!-- Map popup -->
+	<div data-role="popup" data-overlay-theme="b" id="mapPopUp">
+		<!-- Add Close button -->
+		<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete
+									ui-btn-icon-notext ui-btn-right">Close</a>
+
+		<h4 class="ui-title" id="mapTitle"></h4>
+		<div id="map_canvas"></div>
+	</div>
+</div>
+
+
+<!-- Forecast page -->
+<div data-role="page" id="foreCast">
+
+	<header data-role="header">
+		<a href="#home" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all"></a>
+		<h1>Forecast</h1>
+	</header>
+
+	<section class="ui-content" role="main">
+		<div id="foreCastDetails" data-role="collapsible-set">
+		</div>
+	</section>
+</div>
+
+
+<!-- Comment page -->
+<div data-role="page" id="question" data-theme="a">
+
+	<header data-role="header">
+		<a href="#home" class="ui-btn ui-icon-back ui-btn-icon-notext ui-corner-all"></a>
+		<h2>Question and Comment</h2>
+	</header>
+
+	<div data-role="content">
+
+		<!-- email -->
+		<em>Email: </em>
+		<input type="text" name="email" id="email" placeholder="abc@gmail.com">
+
+		<!-- type -->
+		<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<legend>Type:</legend>
+			<input type="radio" name="type" id="technical" value="technical" checked="checked">
+			<label for="technical">Technical</label>
+			<input type="radio" name="type" id="general" value="general">
+			<label for="general">General</label>
+			<input type="radio" name="type" id="question" value="question">
+			<label for="question">Question</label>
+		</fieldset>
+
+		<!-- comments input -->
+		<em>Comment: </em>
+		<textarea name="textarea" id="comment" placeholder="Type Here.."></textarea>
+
+		<!-- submit -->
+		<button id="register" class="ui-btn ui-mini ui-icon-action ui-btn-icon-left ui-corner-all">Register</button>
+
+		<!-- retrieve -->
+		<a href="#commentOutput" id="retrieve" data-rel="popup" class="ui-btn ui-mini ui-icon-action ui-btn-icon-left ui-corner-all">Retrieve the last question</a>
+
+	</div>
+
+
+	<!-- Question/Message popup -->
+	<div data-role="popup" data-transition="pop" id="commentOutput">
+		<!-- Add Close button -->
+		<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-delete
+									ui-btn-icon-notext ui-btn-right">Close</a>
+
+		<header data-role="header">
+			<h1 class="ui-title" id="commentHeader">Comment in Local Storage</h1>
+		</header>
+
+		<section class="ui-content" role="main" >
+			<table id="localStroage" >
+			</div>
+		</section>
+	</div>
+
+</div>
+
+</body>
+</html>
